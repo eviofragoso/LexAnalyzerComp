@@ -11,13 +11,15 @@ import static br.com.trabalhofontes.Token.*;
 
 
 SPACECHAR = [\ \t]
-LINECHAR = \n|\r|\r\n
+LINECHAR =[ \r\n]
 
-NAT = [1-9][0-9]*
-NATWP = [1-9][0-9]*[@]?
+INT =[1-9][0-9]*
+NEGINT = [\-]?[1-9][0-9]*
+POWER = \@
 ID = [a-zA-Z$][a-zA-Z$0-9]*
-FLOAT = {NAT}+[,]{NAT}+
-FLOATWP = {NAT}+[,]{NAT}+[@]?
+FLOAT = [1-9][0-9]+[,][0-9]+
+NEGFLOAT = [\-][1-9][0-9]+[,][0-9]+
+
 COMMENT = (["#"].*)
 BLOCKCOMMENT = ([":"].*[":"])
 STRING = (["&"].*["&"])
@@ -59,10 +61,11 @@ public String lexeme;
  "=" {lexeme = yytext()+" line: "+yyline+" column: "+yycolumn; return EQ;}
  "!=" {lexeme = yytext()+" line: "+yyline+" column: "+yycolumn;return NOEQ;}
  {ID} {lexeme = yytext()+" line: "+yyline+" column: "+yycolumn; return ID;}
- {NAT} {lexeme = yytext()+" line: "+yyline+" column: "+yycolumn; return NAT;}
- {NATWP} {lexeme = yytext()+" line: "+yyline+" column: "+yycolumn; return NATWP;}
+ {INT} {lexeme = yytext()+" line: "+yyline+" column: "+yycolumn; return INT;}
+ {NEGINT} {lexeme = yytext()+" line: "+yyline+" column: "+yycolumn; return NEGINT;}
+ {POWER} {lexeme = yytext()+" line: "+yyline+" column: "+yycolumn; return POWER;}
  {FLOAT} {lexeme = yytext()+" line: "+yyline+" column: "+yycolumn; return FLOAT;}
- {FLOATWP} {lexeme = yytext()+" line: "+yyline+" column: "+yycolumn; return FLOATWP;}
+ {NEGFLOAT} {lexeme = yytext()+" line: "+yyline+" column: "+yycolumn; return NEGFLOAT;}
  {COMMENT} {lexeme = yytext()+" line: "+yyline+" column: "+yycolumn; return COMMENT;}
  {BLOCKCOMMENT} {lexeme = yytext()+" line: "+yyline+" column: "+yycolumn; return BLOCKCOMMENT;}
  {STRING} {lexeme = yytext()+" line: "+yyline+" column: "+yycolumn; return STRING;}

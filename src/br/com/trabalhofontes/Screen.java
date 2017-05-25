@@ -238,13 +238,18 @@ public class Screen extends javax.swing.JFrame {
 
                     output = output + "[Equality_Operator] " + lex.lexeme + "\n";
                     break;
-                case NAT:
+                case INT:
 
-                    output = output + "[Numeric_Value_Natural] " + lex.lexeme + "\n";
+                    output = output + "[Numeric_Value_INT] " + lex.lexeme + "\n";
                     break;
-                case NATWP:
+                    
+                case NEGINT:
 
-                    output = output + "[Numeric_Value_Natural_With_Power] " + lex.lexeme + "\n";
+                    output = output + "[Negative_Numeric_Value_INT] " + lex.lexeme + "\n";
+                    break;
+                case POWER:
+
+                    output = output + "[Power] " + lex.lexeme + "\n";
                     break;
                    
                 case STRING:
@@ -255,11 +260,12 @@ public class Screen extends javax.swing.JFrame {
 
                     output = output + "[Numeric_Value_Float] " + lex.lexeme + "\n";
                     break;
-                    
-                case FLOATWP:
+                
+                case NEGFLOAT:
 
-                    output = output + "[Numeric_Value_Float_With_Power] " + lex.lexeme + "\n";
+                    output = output + "[Negative_Numeric_Value_Float] " + lex.lexeme + "\n";
                     break;
+                
                     
                 case COMMENT:
 
