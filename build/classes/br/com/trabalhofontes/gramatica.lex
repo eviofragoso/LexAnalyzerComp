@@ -11,13 +11,13 @@ import static br.com.trabalhofontes.Token.*;
 
 
 SPACECHAR = [\ \t]
-LINECHAR =[ \r\n]
+LINECHAR = \r|\n
 
 INT =[1-9][0-9]*
 NEGINT = [\-]?[1-9][0-9]*
 POWER = \@
 ID = [a-zA-Z$][a-zA-Z$0-9]*
-FLOAT = [1-9][0-9]+[,][0-9]+
+FLOAT = [1-9][0-9]*[,][0-9]+
 NEGFLOAT = [\-][1-9][0-9]+[,][0-9]+
 
 COMMENT = (["#"].*)
